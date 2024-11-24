@@ -1,13 +1,3 @@
-/*const express = require("express");
-
-
-const{createServer}=require('http')
-
-const app=express()
-const server = createServer(app)
-const io=new Server(5000)
-*/
-
 
 const { Server } = require("socket.io")
 const io = new Server(5000, {
@@ -38,12 +28,16 @@ io.on("connection", (socket) => {
     })
 
     socket.on("peer:nego:needed",({to,offer})=>{
-        console.log("peer:nego:needed",offer)
+        //console.log("peer:nego:needed",offer)
         io.to(to).emit("peer:nego:needed",{from:socket.id,offer})
     })
 
     socket.on("peer:nego:done",({to,answer})=>{
-        console.log("peer:nego:done",answer)
+        //console.log("peer:nego:done",answer)
         io.to(to).emit("peer:nego:final",{from:socket.id,answer})
     })
+
+    socket.on("end:call", ({ to }) => {
+        io.to(to).emit("end:call");
+    });
 })
