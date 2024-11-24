@@ -2,6 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Lobby from './screen/Lobby';
 import Room from './screen/Room';
+import './styles/tailwind.css';
+
 export default function App() {
   return (
     <div className="App">

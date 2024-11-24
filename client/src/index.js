@@ -5,6 +5,8 @@ import App from './App';
 import { SocketProvider } from './context/SocketProvider';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import './styles/tailwind.css';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
